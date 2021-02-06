@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { ToastContainer } from "react-toastify";
 
+import requireAuth from "./utils/RequireAuth";
 import Root from "./Root";
 import Home from "./components/Home";
 import Signup from "./components/signup/Signup";
@@ -21,7 +22,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/signup" component={Signup} />
                         <Route path="/login" component={Login} />
-                        <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/dashboard" component={requireAuth(Dashboard)} />
                         <Route exact path="/" component={Home} />
                         <Route path="*">Ups</Route>
                     </Switch>
