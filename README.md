@@ -8,3 +8,6 @@ Django-react boilerplate for SaaS using docker
 # Stuff for production:
 - Consider offloading static assets to a [S3-compatible storage account](https://www.digitalocean.com/community/tutorials/how-to-build-a-django-and-gunicorn-application-with-docker)
 
+# Credits
+- (docker-compose-django-react)[https://github.com/18F/docker-compose-django-react]
+- (django-react-boilerplate)[https://github.com/saasitive/django-react-boilerplate]

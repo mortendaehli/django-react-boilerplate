@@ -60,6 +60,7 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+django_static/
 
 # Flask stuff:
 instance/
@@ -131,5 +132,5 @@ dmypy.json
 # Jetbrains
 .idea/
 
-# django static files
-django_static/
+# VS Code
+.vscode

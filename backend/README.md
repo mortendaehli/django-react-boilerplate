@@ -6,7 +6,10 @@ Work in progress. Inspiration:
 
 This django application is the backend of the web application.
 
-Build the docker using "docker build -t backend ."
-Run the container in two steps using:
-- docker run --env-file .env backend sh -c "python manage.py makemigrations && python manage.py migrate"
-- docker run --env-file .env -p 8000:8000 backend
+## Build, manage and run:
+Assuming you have the environmental variables in a .env-file:
+- Build the docker image using "docker build -t backend ." or equivalent
+- Migrate data model to database using: "docker run --env-file .env backend sh -c "python manage.py makemigrations && python manage.py migrate"
+- Manage service using interactive shell: "docker run -i -t --env-file .env backend sh"
+    - Here you can for example create a superuser: "python manage.py createsuperuser"
+- Run the service: "docker run --env-file .env -p 8000:8000 backend"
