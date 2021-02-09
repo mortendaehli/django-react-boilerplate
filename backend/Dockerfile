@@ -14,11 +14,12 @@ EXPOSE 8000
 RUN python manage.py collectstatic --noinput
 
 # run gunicorn
+CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "server.wsgi:application", "--log-level", "debug"]
 CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "server.wsgi:application"]
 
 # Options to DEBUG Django server
 # run gunicorn with debug log level
-# gunicorn server.wsgi --bind 0.0.0.0:8000 --workers 1 --threads 1 --log-level debug
+# gunicorn server.wsgi --bind 0.0.0.0:8000 --workers 1 --threads 1  debug
 
 # Option 2:
 # run development server

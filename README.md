@@ -11,3 +11,10 @@ Django-react boilerplate for SaaS using docker
 # Credits
 - (docker-compose-django-react)[https://github.com/18F/docker-compose-django-react]
 - (django-react-boilerplate)[https://github.com/saasitive/django-react-boilerplate]
+
+
+# Run
+- Build: docker-compose -f docker-compose-dev.yml build
+- Run: docker-compose -f docker-compose-dev.yml up
+- Stop: docker-compose -f docker-compose-dev.yml down
+- Force build and run: docker-compose -f docker-compose-dev.yml up --build
