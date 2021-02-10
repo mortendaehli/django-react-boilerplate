@@ -12,10 +12,9 @@ EXPOSE 8000
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
-
 # run gunicorn
-CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "server.wsgi:application", "--log-level", "debug"]
-CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "server.wsgi:application"]
+# CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "server.wsgi"]
+CMD ["gunicorn", "server.wsgi", ":8000", "--workers", "4"]
 
 # Options to DEBUG Django server
 # run gunicorn with debug log level
