@@ -27,16 +27,19 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', default=get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_DEBUG", 'False').lower() in ['true', '1']
-DEBUG = True
+
 # CSRF_COOKIE_SECURE = not(DEBUG)
 # SESSION_COOKIE_SECURE = not(DEBUG)
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,0.0.0.0').split(',')
+ALLOWED_HOSTS = os.getenv(
+    'DJANGO_ALLOWED_HOSTS',
+    '127.0.0.1,localhost,0.0.0.0'
+).split(',')
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000"
-]
+CORS_ALLOWED_ORIGINS = os.getenv(
+    'DJANGO_CORS_ALLOWED_ORIGINS',
+    'http://localhost:3000,http://127.0.0.1:3000,http://0.0.0.0:3000'
+).split(',')
 
 # Application definition
 
@@ -150,7 +153,7 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/django_static/'
-STATIC_ROOT = BASE_DIR / 'django_static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'django_static')
 
 # Logging Configuration
 

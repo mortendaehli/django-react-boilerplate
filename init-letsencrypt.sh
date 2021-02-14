@@ -5,9 +5,9 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(boilerplate.saasitive.com www.boilerplate.saasitive.com)
+domains=(daehøi.no www.daehli.no)
 rsa_key_size=4096
-data_path="./webserver/certbot"
+data_path="./docker/nginx/certbot"
 email="" # Adding a valid address is strongly recommended
 staging=1 # Set to 1 if you're testing your setup to avoid hitting request limits
 
