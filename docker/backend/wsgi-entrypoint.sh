@@ -12,3 +12,9 @@ do
 done
 
 gunicorn server.wsgi --bind 0.0.0.0:8000 --workers 4 --threads 4
+
+# Debug mode with logging in console
+# gunicorn server.wsgi --bind 0.0.0.0:8000 --workers 1 --threads 1 --log-level debug
+
+# Run Django development server
+# DEBUG=True ./manage.py runserver 0.0.0.0:8000
