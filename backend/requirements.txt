@@ -4,3 +4,4 @@ markdown
 django-filter
 djoser
 django-cors-headers
+psycopg2

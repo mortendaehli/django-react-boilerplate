@@ -1,6 +1,25 @@
 version: '3'
 
 services:
+    db:
+        image: postgres
+        env_file:
+            - .env
+    backend:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: ./docker/backend/Dockerfile
+        env_file:
+            - .env
+        entrypoint: /app/docker/backend/wsgi-entrypoint.sh
+        volumes:
+            - .:/app
+            - static_volume:/app/backend/django_static
+        expose:
+            - 8000
+        depends_on:
+            - db
     nginx: 
         restart: unless-stopped
         build:
@@ -13,19 +32,6 @@ services:
             - ./docker/nginx/development:/etc/nginx/conf.d
         depends_on: 
             - backend
-    backend:
-        restart: unless-stopped
-        build:
-            context: .
-            dockerfile: ./docker/backend/Dockerfile
-        env_file:
-            -   .env
-        entrypoint: /app/docker/backend/wsgi-entrypoint.sh
-        volumes:
-            - .:/app
-            - static_volume:/app/backend/django_static
-        expose:
-            - 8000        
 
 volumes:
     static_volume: {}
